@@ -1,5 +1,5 @@
 '''
-Python 2.7 version needed.
+Python version: 2.7
 
 To make this file work, following lib should be installed:
 - websocket (https://pypi.python.org/pypi/websocket-client/)
@@ -13,7 +13,22 @@ import json
 
 
 def on_message(ws, message):
-    ''' Function, that creates file and writes proper message to it '''
+    ''' Function, that creates file and writes proper message on it.
+
+    List of available options (e.g. : "....format(edited['roll']"):
+
+    ["win"] - win or lose (boolean)
+    ["did"] - Game ID
+    ["time"] - Time (Unix Timestamp)
+    ["nick"] - User Nickname
+    ["imgid"] - Coin icon
+    ["cur"] - Currency
+    ["bet"] - Bet value
+    ["tar"] - <49 or >51
+    ["roll"] - Value of "tar"
+    ["pr"] - Prize
+
+    '''
 
     file_to_write = open('data.txt', 'a')
     try:
