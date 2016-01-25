@@ -13,7 +13,7 @@ import json
 
 
 def on_message(ws, message):
-    ''' Function, that creates file and writes proper message on it '''
+    ''' Function, that creates file and writes proper message to it '''
 
     file_to_write = open('data.txt', 'a')
     try:
