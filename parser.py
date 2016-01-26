@@ -10,6 +10,7 @@ import websocket
 import thread
 import time
 import json
+import datetime
 
 
 def on_message(ws, message):
@@ -31,12 +32,14 @@ def on_message(ws, message):
     '''
 
     file_to_write = open('data.txt', 'a')
+    error_log = open('error.txt', 'a')
     try:
         edited = json.loads(json.loads(message)['data'])
         file_to_write.write('Roll is {} \n'.format(edited['roll']))
         print 'Roll is {}'.format(edited['roll'])
     except:
-        print "OOOPS! Wrong JSON"
+        print "OOOPS! Wrong JSON: {}".format(message)
+        error_log.write("{}   {}, \n".format(datetime.datetime.now(), message))
         pass
 
 
