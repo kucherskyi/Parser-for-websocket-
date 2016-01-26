@@ -14,7 +14,8 @@ import datetime
 
 
 def on_message(ws, message):
-    ''' Function, that creates file and writes proper message on it.
+    ''' Function, that creates file and writes proper message to it.
+    Also, all corrupted responses will be saved to 'error.txt'.
 
     List of available options (e.g. : "....format(edited['roll']"):
 
