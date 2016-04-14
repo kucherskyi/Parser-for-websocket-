@@ -1,10 +1,10 @@
-'''
+"""
 Python version: 2.7
 
 To make this file work, following lib should be installed:
 - websocket (https://pypi.python.org/pypi/websocket-client/)
 
-'''
+"""
 
 import websocket
 import thread
@@ -14,7 +14,7 @@ import datetime
 
 
 def on_message(ws, message):
-    ''' Function, that creates file and writes proper message to it.
+    """ Function, that creates file and writes proper message to it.
     Also, all corrupted responses will be saved to 'error.txt'.
 
     List of available options (e.g. : "....format(edited['roll']"):
@@ -30,7 +30,7 @@ def on_message(ws, message):
     ["roll"] - Value of "tar"
     ["pr"] - Prize
 
-    '''
+    """
 
     file_to_write = open('data.txt', 'a')
     error_log = open('error.txt', 'a')
@@ -53,7 +53,7 @@ def on_close(ws):
 
 
 def on_open(ws):
-    ''' Function that authorizes to WS and creates thread '''
+    """ Function that authorizes to WS and creates thread """
 
     def run(*args):
         ws.send('{"event":"pusher:subscribe","data":{"channel":"chat_ru"}}')
